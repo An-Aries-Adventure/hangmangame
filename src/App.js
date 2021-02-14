@@ -1,11 +1,13 @@
 
 import './App.css';
 import React, {useState, useEffect} from "react";
-import Header from "./components/Header"
-import Figure from "./components/Figure"
-import WrongLetters from "./components/WrongLetters"
-import Word from "./components/Word"
-import PopUp from "./components/PopUp"
+import Header from "./components/Header";
+import Figure from "./components/Figure";
+import WrongLetters from "./components/WrongLetters";
+import Word from "./components/Word";
+import PopUp from "./components/PopUp";
+import Notification from "./components/Notification";
+import Show from './helpers/helpers.js';
 
 
 const words = ['application', 'programming', 'interface', 'wizard','cheese', 'string', 'pizza'];
@@ -18,6 +20,7 @@ function App() {
   const [playable, setPlayable] = useState(true);
   const [correctLetters, setCorrectLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
+  const [showNotification, setshowNotificaiton] = useState(false);
 
   useEffect(() => {
   const handleKeyDown = event =>{
@@ -29,14 +32,14 @@ function App() {
           if (!correctLetters.includes(letter)) {
             setCorrectLetters(currentLetters => [...currentLetters, letter]);
           } else {
-            // showNotification();
+            Show(setshowNotificaiton)
           }
         } else {
           if (!wrongLetters.includes(letter)) {
             setWrongLetters(wrongLetters => [...wrongLetters, letter]);
 
           } else {
-            // showNotification();
+            Show(setshowNotificaiton)
           }
         }
       }
@@ -55,6 +58,8 @@ function App() {
        <WrongLetters wrongLetters = {wrongLetters}/>
        <Word selectedWord={selectedWord} correctLetters={correctLetters}/>
      </div>
+     <PopUp/>
+       <Notification showNotification={showNotification}/>
     </>
   );
 }
