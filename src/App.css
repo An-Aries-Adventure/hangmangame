@@ -14,9 +14,9 @@ body {
   overflow: hidden;
 }
 
-h1 {
-  margin: auto auto;
-  color: ivory;
+#title {
+  color: rgb(165, 86, 17);
+  margin: auto;
 }
 
 .game-container {
