@@ -17,6 +17,11 @@ body {
 #title {
   color: rgb(165, 86, 17);
   margin: auto;
+  padding: 15px;
+}
+
+.wrapper {
+  border: 2px white solid;
 }
 
 .game-container {

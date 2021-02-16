@@ -52,6 +52,7 @@ function App() {
 
   return (
     <>
+    <div className ="wrapper">
      <Header/>
      <div className="game-container">
        <Figure wrongLetters = {wrongLetters}/> 
@@ -60,7 +61,9 @@ function App() {
      </div>
      <PopUp/>
        <Notification showNotification={showNotification}/>
+    </div>
     </>
+    
   );
 }
 
