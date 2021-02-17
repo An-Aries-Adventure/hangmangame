@@ -7,7 +7,7 @@ import WrongLetters from "./components/WrongLetters";
 import Word from "./components/Word";
 import PopUp from "./components/PopUp";
 import Notification from "./components/Notification";
-import Show from './helpers/helpers.js';
+import {show} from './helpers/helpers.js';
 
 
 const words = ['application', 'programming', 'interface', 'wizard','cheese', 'string', 'pizza'];
@@ -32,14 +32,14 @@ function App() {
           if (!correctLetters.includes(letter)) {
             setCorrectLetters(currentLetters => [...currentLetters, letter]);
           } else {
-            Show(setshowNotificaiton)
+            show(setshowNotificaiton)
           }
         } else {
           if (!wrongLetters.includes(letter)) {
             setWrongLetters(wrongLetters => [...wrongLetters, letter]);
 
           } else {
-            Show(setshowNotificaiton)
+            show(setshowNotificaiton)
           }
         }
       }
@@ -59,7 +59,7 @@ function App() {
        <WrongLetters wrongLetters = {wrongLetters}/>
        <Word selectedWord={selectedWord} correctLetters={correctLetters}/>
      </div>
-     <PopUp/>
+     <PopUp correctLetters={correctLetters} wrongLetters={wrongLetters} selectedWord={selectedWord}setPlayable = {setPlayable}/>
        <Notification showNotification={showNotification}/>
     </div>
     </>
