@@ -1,13 +1,17 @@
 import React from 'react'
 
-const PopUp = () => {
+const PopUp = ({correctLetters, wrongLetters, selectedWord, setPlayable}) => {
+
+  let finalMessage = "";
+  let finalMessageRevealWord = "";
+  let playable = "true";
     return (
         // <!-- Container for final message -->
-        <div class="popup-container" id="popup-container">
-          <div class="popup">
-            <h2 id="final-message"></h2>
-            <h3 id="final-message-reveal-word"></h3>
-            <button id="play-button">Play Again</button>
+        <div className="popup-container">
+          <div className="popup">
+            <h2>{finalMessage}</h2>
+            <h3 >{finalMessageRevealWord}</h3>
+            <button>Play Again</button>
           </div>
         </div>
     )
